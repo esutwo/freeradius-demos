@@ -1,0 +1,13 @@
+version: '2'
+services:
+  freeradius-demo1:
+    command: freeradius -X
+    container_name: freeradius-demo3
+    hostname: freeradius-demo
+    env_file: .env
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - "./certs:/certs"
+      - "./peap-eap-mschapv2.conf:/peap-eap-mschapv2.conf"
